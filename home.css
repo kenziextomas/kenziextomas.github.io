@@ -1,7 +1,6 @@
 @font-face {
   font-family: "pricedownbl";
-  src: url("https://fonts.cdnfonts.com/s/14875/pricedown bl.woff")
-    format("woff");
+  src: url("https://fonts.cdnfonts.com/s/14875/pricedown bl.woff") format("woff");
 }
 
 :root {
@@ -36,9 +35,11 @@ body {
   width: 100%;
   padding: 15px 0;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px); /* Efek kaca transparan */
+  backdrop-filter: blur(10px);
+  /* Efek kaca transparan */
   z-index: 1000;
-  border-bottom: 2px solid rgba(255, 20, 147, 0.3); /* Border pink tipis */
+  border-bottom: 2px solid rgba(255, 20, 147, 0.3);
+  /* Border pink tipis */
 }
 
 .nav-flex {
@@ -74,7 +75,8 @@ body {
   font-size: 0.8rem;
 }
 
-.nav-item:hover, .nav-item.active {
+.nav-item:hover,
+.nav-item.active {
   color: deeppink;
   background: rgba(255, 20, 147, 0.1);
   text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
@@ -108,8 +110,15 @@ body {
   transition: all 0.3s;
 }
 
-.nav-toggle-label span::before { content: ""; top: 8px; }
-.nav-toggle-label span::after { content: ""; bottom: 10px; }
+.nav-toggle-label span::before {
+  content: "";
+  top: 8px;
+}
+
+.nav-toggle-label span::after {
+  content: "";
+  bottom: 10px;
+}
 
 /* Mobile View Adjustments */
 @media (max-width: 768px) {
@@ -131,7 +140,7 @@ body {
     border-bottom: 2px solid deeppink;
   }
 
-  .nav-toggle:checked ~ .nav-links {
+  .nav-toggle:checked~.nav-links {
     transform: translateY(0);
   }
 
@@ -192,7 +201,7 @@ body {
   z-index: 10000;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
   background-size: 100% 4px;
-} 
+}
 
 /* Mission Passed - Full Black Background */
 .mission-passed-overlay {
@@ -201,11 +210,13 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000000; /* Hitam Full */
+  background: #000000;
+  /* Hitam Full */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000; /* Paling atas */
+  z-index: 10000;
+  /* Paling atas */
   opacity: 1;
   visibility: visible;
   transition:
@@ -283,7 +294,8 @@ body {
   line-height: 1.6;
 }
 
-.footer-links h4, .footer-social h4 {
+.footer-links h4,
+.footer-social h4 {
   color: deeppink;
   margin-bottom: 20px;
   font-size: 1.2rem;

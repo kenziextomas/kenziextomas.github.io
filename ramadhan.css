@@ -1,7 +1,6 @@
 @font-face {
   font-family: "pricedownbl";
-  src: url("https://fonts.cdnfonts.com/s/14875/pricedown bl.woff")
-    format("woff");
+  src: url("https://fonts.cdnfonts.com/s/14875/pricedown bl.woff") format("woff");
 }
 
 :root {
@@ -36,9 +35,11 @@ body {
   width: 100%;
   padding: 15px 0;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px); /* Efek kaca transparan */
+  backdrop-filter: blur(10px);
+  /* Efek kaca transparan */
   z-index: 1000;
-  border-bottom: 2px solid rgba(255, 20, 147, 0.3); /* Border pink tipis */
+  border-bottom: 2px solid rgba(255, 20, 147, 0.3);
+  /* Border pink tipis */
 }
 
 .nav-flex {
@@ -113,6 +114,7 @@ body {
   content: "";
   top: 8px;
 }
+
 .nav-toggle-label span::after {
   content: "";
   bottom: 10px;
@@ -138,7 +140,7 @@ body {
     border-bottom: 2px solid deeppink;
   }
 
-  .nav-toggle:checked ~ .nav-links {
+  .nav-toggle:checked~.nav-links {
     transform: translateY(0);
   }
 
@@ -192,6 +194,7 @@ body {
 .catalog {
   padding: 80px 0;
 }
+
 .section-header {
   text-align: center;
   margin-bottom: 50px;
@@ -220,6 +223,7 @@ body {
   object-position: center;
   display: block;
 }
+
 .gta-card:hover {
   border-color: var(--gta-yellow);
   transform: translateY(-5px);
@@ -233,12 +237,15 @@ body {
   font-size: 3.5rem;
   opacity: 0.6;
 }
+
 .money-bg {
   background: #1b4d3e;
 }
+
 .vip-bg {
   background: #4a3b1b;
 }
+
 .weapon-bg {
   background: #4a1b1b;
 }
@@ -259,6 +266,7 @@ body {
   align-items: center;
   margin-top: 15px;
 }
+
 .price {
   color: var(--gta-green);
   font-size: 1.6rem;

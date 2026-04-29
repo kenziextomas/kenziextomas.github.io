@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Note: In a real environment, this increments the counter
       const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/visits/up`);
       const data = await response.json();
-      
+
       if (data && data.count) {
         animateCount(data.count);
       } else {
@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const update = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       // Easing function
       const easeOut = 1 - Math.pow(1 - progress, 3);
       const current = Math.floor(start + (target - start) * easeOut);
-      
+
       if (visitorCountElement) {
         visitorCountElement.innerText = formatCount(current);
       }
