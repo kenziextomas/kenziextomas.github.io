@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tomas Store | Official Store</title>
-  <link rel="stylesheet" href="sell.css" />
+  <link rel="stylesheet" href="home.css" />
   <link href="https://fonts.googleapis.com/css2?family=Pricedown&family=Space+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="visitor.css" />
@@ -13,6 +13,16 @@
 
 <body class="gta-samp-theme">
   <div class="crt-overlay"></div>
+
+  <div id="mission-screen" class="mission-passed-overlay">
+    <div class="mission-box">
+      <h1 class="pricedownbl-text mission-title">MISSION PASSED</h1>
+      <div class="mission-stats">
+        <p class="pricedownbl-text respect-text">+1 RESPECT</p>
+        <p class="pricedownbl-text store-text"><span style="color: deeppink;">TOMAS STORE</span> UNLOCKED</p>
+      </div>
+    </div>
+  </div>
 
   <nav class="hud-nav">
     <div class="container nav-flex">
@@ -30,8 +40,8 @@
       </label>
 
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-item"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#sell" class="nav-item active"><i class="fas fa-shopping-cart"></i> Sell</a></li>
+        <li><a href="#home" class="nav-item active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="sell.html" class="nav-item"><i class="fas fa-shopping-cart"></i> Sell</a></li>
         <li><a href="free.html" class="nav-item"><i class="fas fa-gift"></i> Free</a></li>
       </ul>
 
@@ -44,77 +54,34 @@
       </div>
   </nav>
 
-  <header class="hero-streets" id="sell">
+  <header class="hero-streets">
     <div class="hero-container">
-      <h2 class="pricedownbl-text big-title">MENU SELL</h2>
+      <h2 class="pricedownbl-text big-title">LEVEL UP YOUR ACCOUNT</h2>
       <div class="samp-terminal">
         <p><span style="color: deeppink;">[SYSTEM]</span> Tomas Store status: <span style="color: green;">Online</span>
         </p>
         <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: yellow;">★★★☆☆</span></p>
         <p class="cmd">/<span class="blink">_</span></p>
       </div>
+      <a href="#home" class="btn-gta-style">STORE OPEN</a>
     </div>
   </header>
 
-  <section>
-    <div class="gta-grid">
-      <div class="gta-card">
-        <img src="img/home+meka.png" alt="">
-        <div class="card-details">
-          <h3 class="pricedownbl-text">Mapping Home + Mekanik</h3>
-          <div class="item-rating">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-          </div>
-          <p>Las Venturas.</p>
-          <div class="price-row">
-            <span class="price">IDR 10.000</span>
-            <button>
-              <a href="home+meka.html">BUY</a>
-            </button>
-          </div>
-        </div>
+  <section class="about" id="home">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="pricedownbl-text" style="text-align: center;">About</h2>
+        <div class="divider"></div>
       </div>
-
-      <div class="gta-card">
-        <img src="img/pink.png" alt="">
-        <div class="card-details">
-          <h3 class="pricedownbl-text">GTA r1 Pink</h3>
-          <div class="item-rating">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-          </div>
-          <p>Boost FPS.</p>
-          <div class="price-row">
-            <span class="price">IDR 15.000</span>
-            <button>
-              <a href="pink.html">BUY</a>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="gta-card">
-        <img src="img/rill.png" alt="">
-        <div class="card-details">
-          <h3 class="pricedownbl-text">GTA r1 Gengster</h3>
-          <div class="item-rating">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-          </div>
-          <p>GTA HYTAM.</p>
-          <div class="price-row">
-            <span class="price">IDR 20.000</span>
-            <button>
-              <a href="gengster.html">BUY</a>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+      <p style="text-align: center;"><span style="color: deeppink;">Tomas Store</span> adalah toko game GTA SA:MP, yang
+        berfokus pada upgrade IC (in charakter). <span style="color: deeppink;">Tomas Store</span> juga mempunyai banyak
+        layanan yang tersedia, seperti Mapping, Uang, Gun, dan lain lain. Di <span style="color: deeppink;">Tomas
+          Store</span> sudah pasti Murah, Aman, Dan Terpercaya.</p>
+      <p style="text-align: center;">Di <span style="color: deeppink;">Tomas Store</span> Juga Ada Event Dan Item
+        Gratis. Untuk informasi lebih lanjut bisa cek Discord</p>
   </section>
 
-  <section class="discord-simple" id="sell">
+  <section class="discord-simple" id="home">
 
     <div class="samp-terminal">
       <p><span style="color: deeppink;">[SYSTEM]</span> Tomas Store status: <span style="color: green;">Online</span>
@@ -138,8 +105,8 @@
       <div class="footer-links">
         <h4 class="pricedownbl-text">Navigation</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#sell">Sell</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="sell.html">Sell</a></li>
           <li><a href="free.html">Free</a></li>
         </ul>
       </div>
@@ -172,7 +139,7 @@
   </footer>
 
   <script src="visitor.js"></script>
-  <script src="sell.js"></script>
+  <script src="home.js"></script>
 </body>
 
 </html>
