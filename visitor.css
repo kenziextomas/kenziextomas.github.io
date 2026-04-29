@@ -54,3 +54,15 @@
     opacity: 0.5;
   }
 }
+/* Sales Count Styles */
+.sold-info {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 10px;
+  font-family: 'Space Mono', monospace;
+}
+
+.sold-count {
+  color: deeppink;
+  font-weight: bold;
+}

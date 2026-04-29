@@ -1,47 +1,116 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Typing Effect
+  const missionScreen = document.getElementById("mission-screen");
+  const skipBtn = document.getElementById("skip-animation");
   const cmdLine = document.querySelector(".cmd");
-  const text = "/me membuka toko tomas";
-  let i = 0;
+  let typingTimeout;
+  let isSkipped = false;
 
-  const type = () => {
-    if (i < text.length) {
-      cmdLine.innerHTML =
-        text.substring(0, i + 1) + '<span class="blink">_</span>';
-      i++;
-      setTimeout(type, 100);
+  const skipAnimation = () => {
+    if (isSkipped) return;
+    isSkipped = true;
+    
+    // Hide mission screen
+    if (missionScreen) {
+      missionScreen.classList.add("fade-out");
+      setTimeout(() => missionScreen.style.display = 'none', 1500);
+    }
+    
+    // Complete typing immediately
+    if (cmdLine) {
+      clearTimeout(typingTimeout);
+      cmdLine.innerHTML = "/me membuka toko tomas" + '<span class="blink">_</span>';
+    }
+
+    // Initialize chart immediately if not already done
+    if (typeof initSalesChart === 'function') {
+      initSalesChart(true); // true means immediate
     }
   };
-  setTimeout(type, 1000);
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const missionScreen = document.getElementById("mission-screen");
+  if (skipBtn) {
+    skipBtn.addEventListener("click", skipAnimation);
+  }
 
-  // Tampilkan layar hitam MISSION PASSED selama 4 detik
+  // Also skip on Space bar
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") {
+      skipAnimation();
+    }
+  });
+
+  // Auto-hide mission screen after 4 seconds
   setTimeout(() => {
-    if (missionScreen) {
-      // Memberikan efek fade out ke tampilan awal
+    if (!isSkipped && missionScreen) {
       missionScreen.classList.add("fade-out");
     }
   }, 4000);
 
-  // Typing Effect Terminal (Dimulai setelah layar hitam hilang)
-  const cmdLine = document.querySelector(".cmd");
+  // Typing Effect
   if (cmdLine) {
     const text = "/me membuka toko tomas";
     let i = 0;
 
     const type = () => {
+      if (isSkipped) return;
       if (i < text.length) {
         cmdLine.innerHTML =
           text.substring(0, i + 1) + '<span class="blink">_</span>';
         i++;
-        setTimeout(type, 100);
+        typingTimeout = setTimeout(type, 100);
       }
     };
-
-    // Delay mengetik agar tidak terlihat saat layar masih hitam
     setTimeout(type, 5000);
   }
+
+  // Sales Statistics Diagram Logic
+  const initSalesChart = (immediate = false) => {
+    const chartContainer = document.getElementById('sales-chart');
+    if (!chartContainer) return;
+    if (chartContainer.dataset.initialized === 'true') return;
+    chartContainer.dataset.initialized = 'true';
+
+    const counts = JSON.parse(localStorage.getItem('tomas_sales_counts')) || {};
+    const items = [
+      { id: 'home-meka', name: 'Mapping Home + Mekanik' },
+      { id: 'pink', name: 'GTA r1 Pink' },
+      { id: 'gengster', name: 'GTA r1 Gengster' },
+      { id: 'hood', name: 'Mapping Hood' },
+      { id: 'blue', name: 'GTA r1 Blue' },
+      { id: 'ramadhan', name: 'GTA r1 Ramadhan' }
+    ];
+
+    let maxVal = 0;
+    items.forEach(item => {
+      if (!counts[item.id]) {
+        counts[item.id] = Math.floor(Math.random() * 451) + 50;
+      }
+      if (counts[item.id] > maxVal) maxVal = counts[item.id];
+    });
+    localStorage.setItem('tomas_sales_counts', JSON.stringify(counts));
+
+    chartContainer.innerHTML = '';
+    items.forEach(item => {
+      const val = counts[item.id];
+      const percentage = (val / maxVal) * 100;
+      
+      const itemEl = document.createElement('div');
+      itemEl.className = 'chart-item';
+      itemEl.innerHTML = `
+        <div class="chart-label">
+          <span>${item.name}</span>
+          <span>${val} Units</span>
+        </div>
+        <div class="chart-bar-bg">
+          <div class="chart-bar-fill" style="width: 0%"></div>
+        </div>
+      `;
+      chartContainer.appendChild(itemEl);
+
+      setTimeout(() => {
+        itemEl.querySelector('.chart-bar-fill').style.width = percentage + '%';
+      }, immediate ? 100 : 5500);
+    });
+  };
+
+  initSalesChart();
 });
