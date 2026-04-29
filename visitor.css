@@ -1,0 +1,48 @@
+.visitor-counter {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: rgba(255, 20, 147, 0.05);
+  border: 1px solid rgba(255, 20, 147, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.visitor-counter:hover {
+  background: rgba(255, 20, 147, 0.1);
+  border-color: rgba(255, 20, 147, 0.4);
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.2);
+}
+
+.visitor-label {
+  color: #888;
+  font-size: 0.7rem;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.visitor-count {
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+  display: flex;
+  align-items: center;
+}
+
+.visitor-count i {
+  color: deeppink;
+  margin-right: 8px;
+  font-size: 0.8rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}

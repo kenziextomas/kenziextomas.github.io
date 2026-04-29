@@ -31,7 +31,7 @@ body {
 
 /* Navbar */
 .hud-nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   padding: 15px 0;
@@ -199,6 +199,18 @@ body {
   background: #111;
   border: 1px solid #222;
   transition: 0.3s;
+  overflow: hidden; /* Ensure rounded corners/images stay inside */
+  display: flex;
+  flex-direction: column;
+}
+
+.gta-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .gta-card:hover {
   border-color: var(--gta-yellow);

@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="visitor.css" />
   </head>
   <body class="gta-samp-theme">
     <div class="crt-overlay"></div>
@@ -108,21 +109,19 @@
     <div class="footer-bottom">
       <p class="pricedownbl-text">
         <span style="color: deeppink">Tomas Store</span> &copy; 2026.
-        <span
-          style="
-            color: #666;
-            font-family: &quot;Space Mono&quot;;
-            font-size: 0.7rem;
-            margin-left: 10px;
-          "
-        >
-          [TIME: 09:10:03] [LOC: LS-EAST]
-        </span>
       </p>
+      <div class="visitor-counter">
+        <span class="visitor-label">Total Visitors</span>
+        <span class="visitor-count">
+          <i class="fas fa-users"></i>
+          <span id="visitor-count-value">000000</span>
+        </span>
+      </div>
     </div>
   </footer>
 
 
+    <script src="visitor.js"></script>
     <script src="blue.js"></script>
   </body>
 </html>

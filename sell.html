@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="visitor.css" />
   </head>
   <body class="gta-samp-theme">
     <div class="crt-overlay"></div>
@@ -61,7 +62,7 @@
     <section>
         <div class="gta-grid">
           <div class="gta-card">
-            <img src="img/home+meka.png" width="100%" height="55%  " alt="">
+            <img src="img/home+meka.png" alt="">
             <div class="card-details">
               <h3 class="pricedownbl-text">Mapping Home + Mekanik</h3>
               <div class="item-rating">
@@ -80,7 +81,7 @@
           </div>
 
          <div class="gta-card">
-            <img src="img/pink.png" width="100%" height="55%  " alt="">
+            <img src="img/pink.png" alt="">
             <div class="card-details">
               <h3 class="pricedownbl-text">GTA r1 Pink</h3>
               <div class="item-rating">
@@ -99,7 +100,7 @@
           </div>
 
           <div class="gta-card">
-            <img src="img/rill.png" width="100%" height="55%  " alt="">
+            <img src="img/rill.png" alt="">
             <div class="card-details">
               <h3 class="pricedownbl-text">GTA r1 Gengster</h3>
               <div class="item-rating">
@@ -162,13 +163,18 @@
       <div class="footer-bottom">
         <p class="pricedownbl-text">
           <span style="color: deeppink;">Tomas Store</span> &copy; 2026. 
-          <span style="color: #666; font-family: 'Space Mono'; font-size: 0.7rem; margin-left: 10px;">
-            [TIME: 09:10:03] [LOC: LS-EAST]
-          </span>
         </p>
+        <div class="visitor-counter">
+          <span class="visitor-label">Total Visitors</span>
+          <span class="visitor-count">
+            <i class="fas fa-users"></i>
+            <span id="visitor-count-value">000000</span>
+          </span>
+        </div>
       </div>
     </footer>
 
+    <script src="visitor.js"></script>
     <script src="sell.js"></script>
   </body>
 </html>
