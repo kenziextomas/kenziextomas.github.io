@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       itemEl.innerHTML = `
         <div class="chart-label">
           <span>${item.name}</span>
-          <span>${val} Units</span>
+          <span>${val} Unit</span>
         </div>
         <div class="chart-bar-bg">
           <div class="chart-bar-fill" style="width: 0%"></div>

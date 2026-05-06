@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Typing Effect
   const cmdLine = document.querySelector(".cmd");
-  const text = "/me membuka menu sell";
+  const text = "/me membuka menu jual";
   let i = 0;
 
   const type = () => {
