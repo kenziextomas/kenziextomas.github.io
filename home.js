@@ -80,13 +80,25 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     let maxVal = 0;
+    let totalSales = 0;
     items.forEach(item => {
       if (!counts[item.id]) {
         counts[item.id] = Math.floor(Math.random() * 451) + 50;
       }
+      totalSales += counts[item.id];
       if (counts[item.id] > maxVal) maxVal = counts[item.id];
     });
     localStorage.setItem('tomas_sales_counts', JSON.stringify(counts));
+
+    // Conversion Rate Logic (Rumus: Jumlah Pembeli / Jumlah Pengunjung * 100)
+    const visitorCount = parseInt(localStorage.getItem('visitor_count_fallback')) || 12450;
+    const conversionRate = ((totalSales / visitorCount) * 100).toFixed(1);
+    
+    const conversionPercentEl = document.getElementById('conversion-percent');
+    const totalSalesEl = document.getElementById('total-sales-value');
+    const gaugeRing = document.querySelector('.gauge-ring');
+
+    if (totalSalesEl) totalSalesEl.innerText = totalSales.toLocaleString();
 
     chartContainer.innerHTML = '';
     items.forEach(item => {
@@ -110,6 +122,30 @@ document.addEventListener("DOMContentLoaded", () => {
         itemEl.querySelector('.chart-bar-fill').style.width = percentage + '%';
       }, immediate ? 100 : 5500);
     });
+
+    // Animate Conversion Rate
+    setTimeout(() => {
+      if (gaugeRing) {
+        const degrees = (conversionRate / 100) * 360;
+        gaugeRing.style.background = `conic-gradient(deeppink ${degrees}deg, rgba(255, 20, 147, 0.1) 0deg)`;
+      }
+
+      if (conversionPercentEl) {
+        let current = 0;
+        const target = parseFloat(conversionRate);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        const updatePercent = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const val = (progress * target).toFixed(1);
+          conversionPercentEl.innerText = val + '%';
+          if (progress < 1) requestAnimationFrame(updatePercent);
+        };
+        requestAnimationFrame(updatePercent);
+      }
+    }, immediate ? 200 : 6000);
   };
 
   initSalesChart();

@@ -100,12 +100,36 @@
         <h2 class="pricedownbl-text" style="text-align: center;">Statistik Penjualan</h2>
         <div class="divider"></div>
       </div>
-      <div class="chart-wrapper">
-        <div class="samp-terminal chart-terminal">
-          <p><span style="color: deeppink;">[SYSTEM]</span> Analisis Data Penjualan Langsung...</p>
-          <div id="sales-chart" class="sales-chart">
-            <!-- Bars will be injected here by JS -->
-            <p style="color: #888;">Memuat statistik...</p>
+      <div class="stats-grid">
+        <div class="chart-wrapper">
+          <div class="samp-terminal chart-terminal">
+            <p><span style="color: deeppink;">[SYSTEM]</span> Analisis Data Penjualan Langsung...</p>
+            <div id="sales-chart" class="sales-chart">
+              <!-- Bars will be injected here by JS -->
+              <p style="color: #888;">Memuat statistik...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="conversion-wrapper">
+          <div class="samp-terminal conversion-card">
+            <p><span style="color: deeppink;">[SYSTEM]</span> Conversion Rate Analysis</p>
+            <div class="conversion-content">
+              <div class="gauge-container">
+                <div class="gauge-ring"></div>
+                <div class="gauge-value" id="conversion-percent">0%</div>
+              </div>
+              <div class="conversion-info">
+                <div class="info-item">
+                  <span class="info-label">Jumlah Pembeli</span>
+                  <span class="info-value" id="total-sales-value">0</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Status Toko</span>
+                  <span class="info-value" style="color: #2ecc71;">OPTIMAL</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -352,15 +352,114 @@ body {
   text-align: center;
 }
 
-/* Sales Statistics Styles */
+/* Stats Grid Layout */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 20px auto 0;
+}
+
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .conversion-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.conversion-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.conversion-content {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 10px;
+}
+
+.gauge-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gauge-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(deeppink 0deg, rgba(255, 20, 147, 0.1) 0deg);
+  mask: radial-gradient(transparent 58%, black 60%);
+  -webkit-mask: radial-gradient(transparent 58%, black 60%);
+  transition: background 1.5s cubic-bezier(0.1, 0, 0.2, 1);
+  box-shadow: inset 0 0 20px rgba(255, 20, 147, 0.2);
+}
+
+.gauge-ring::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.gauge-value {
+  font-family: "pricedownbl", sans-serif;
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
+  z-index: 1;
+}
+
+.conversion-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-label {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.info-value {
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Existing Sales Statistics Styles */
 .sales-stats {
   padding: 60px 0;
   background: rgba(0, 0, 0, 0.3);
 }
 
 .chart-terminal {
-  max-width: 800px !important;
-  width: 100%;
+  width: 100% !important;
 }
 
 .sales-chart {
