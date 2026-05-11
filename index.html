@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Pricedown&family=Space+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="visitor.css" />
+  <link rel="stylesheet" href="auth.css" />
 </head>
 
 <body class="gta-samp-theme">
@@ -30,7 +31,7 @@
       <div class="brand">
         <a href="index.html" style="text-decoration: none;">
           <h1 class="pricedownbl-text logo-glow">
-            <span style="color: deeppink;">Tomas</span> <span style="color: white;">Store</span>
+            <span style="color: deeppink;">Tomas</span> <span class="contrast-text">Store</span>
           </h1>
         </a>
       </div>
@@ -44,6 +45,8 @@
         <li><a href="#home" class="nav-item active"><i class="fas fa-home"></i> Beranda</a></li>
         <li><a href="sell.html" class="nav-item"><i class="fas fa-shopping-cart"></i> Jual</a></li>
         <li><a href="free.html" class="nav-item"><i class="fas fa-gift"></i> Gratis</a></li>
+        <li><a href="#" class="nav-item" id="auth-btn"><i class="fas fa-user-circle"></i> <span
+              id="auth-btn-text">Akun</span></a></li>
       </ul>
 
       <div class="hud-stars desktop-only-stars">
@@ -61,7 +64,7 @@
       <div class="samp-terminal">
         <p><span style="color: deeppink;">[SYSTEM]</span> Tomas Store status: <span style="color: green;">Online</span>
         </p>
-        <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: yellow;">★★★☆☆</span></p>
+        <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: #f1c40f;">★★★☆☆</span></p>
         <p class="cmd">/<span class="blink">_</span></p>
       </div>
       <a href="#home" class="btn-gta-style">TOKO BUKA</a>
@@ -83,14 +86,141 @@
   </section>
 
   <section class="discord-simple" id="home">
-
     <div class="samp-terminal">
       <p><span style="color: deeppink;">[SYSTEM]</span> Tomas Store status: <span style="color: green;">Online</span>
       </p>
-      <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: yellow;">★★★☆☆</span></p>
+      <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: #f1c40f;">★★★☆☆</span></p>
       <p><span style="color: deeppink;">Tomas says:</span> Terimakasih Sudah Order
       <p>
       <p><span style="color: deeppink;">Tomas says:</span> Jangan Lupa Join Discord Yaw</p>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="pricedownbl-text" style="text-align: center;">Testimoni Pelanggan</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="rating-filter-container">
+        <p class="filter-label">Filter Berdasarkan Rating:</p>
+        <div class="rating-filter">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="5"><i class="fas fa-star"></i> 5</button>
+          <button class="filter-btn" data-filter="4"><i class="fas fa-star"></i> 4</button>
+          <button class="filter-btn" data-filter="3"><i class="fas fa-star"></i> 3</button>
+          <button class="filter-btn" data-filter="2"><i class="fas fa-star"></i> 2</button>
+          <button class="filter-btn" data-filter="1"><i class="fas fa-star"></i> 1</button>
+        </div>
+      </div>
+
+      <div class="testimony-grid" id="testimony-grid">
+        <div class="samp-terminal testimony-card" data-rating="5">
+          <div class="testimony-user">
+            <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="user-info">
+              <h4 class="user-name">Carl_Johnson <i class="fas fa-check-circle verified-badge"
+                  title="Verified Buyer"></i></h4>
+              <div class="user-rating"><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i
+                  class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star active"></i>
+              </div>
+            </div>
+          </div>
+          <div class="testimony-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="testimony-text">Pelayanannya sangat cepat! Saya memesan mapping dan dalam waktu 30 menit sudah
+              selesai. Mantap Tomas Store!</p>
+          </div>
+        </div>
+
+        <div class="samp-terminal testimony-card" data-rating="4">
+          <div class="testimony-user">
+            <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="user-info">
+              <h4 class="user-name">Ryder_OG <i class="fas fa-check-circle verified-badge" title="Verified Buyer"></i>
+              </h4>
+              <div class="user-rating"><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i
+                  class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star"></i></div>
+            </div>
+          </div>
+          <div class="testimony-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="testimony-text">Harganya paling murah dibanding toko sebelah. Adminnya ramah banget, recommended
+              lah pokoknya.</p>
+          </div>
+        </div>
+
+        <div class="samp-terminal testimony-card" data-rating="5">
+          <div class="testimony-user">
+            <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="user-info">
+              <h4 class="user-name">Big_Smoke <i class="fas fa-check-circle verified-badge" title="Verified Buyer"></i>
+              </h4>
+              <div class="user-rating"><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i
+                  class="fas fa-star active"></i><i class="fas fa-star active"></i><i class="fas fa-star active"></i>
+              </div>
+            </div>
+          </div>
+          <div class="testimony-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="testimony-text">Beli akun IC di sini aman banget, prosesnya gampang dan ga ribet. Bakal langganan
+              terus di sini.</p>
+          </div>
+        </div>
+
+        <!-- Additional Mock Testimonials -->
+        <div class="samp-terminal testimony-card" data-rating="3">
+          <div class="testimony-user">
+            <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="user-info">
+              <h4 class="user-name">OG_Loc <i class="fas fa-check-circle verified-badge" title="Verified Buyer"></i>
+              </h4>
+              <div class="user-rating"><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i
+                  class="fas fa-star active"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+          </div>
+          <div class="testimony-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="testimony-text">Layanan oke, cuma respon admin agak lama dikit pas jam istirahat. Tapi overall
+              bagus kok.</p>
+          </div>
+        </div>
+
+        <div class="samp-terminal testimony-card" data-rating="2">
+          <div class="testimony-user">
+            <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="user-info">
+              <h4 class="user-name">Sweet_Johnson <i class="fas fa-check-circle verified-badge"
+                  title="Verified Buyer"></i></h4>
+              <div class="user-rating"><i class="fas fa-star active"></i><i class="fas fa-star active"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+          </div>
+          <div class="testimony-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="testimony-text">Produknya oke tapi pengirimannya telat sehari dari janji awal. Semoga kedepannya
+              lebih tepat waktu.</p>
+          </div>
+        </div>
+
+        <div class="samp-terminal testimony-card" data-rating="1">
+          <div class="testimony-user">
+            <div class="user-avatar"><i class="fas fa-user-circle"></i></div>
+            <div class="user-info">
+              <h4 class="user-name">Officer_Tenpenny <i class="fas fa-check-circle verified-badge"
+                  title="Verified Buyer"></i></h4>
+              <div class="user-rating"><i class="fas fa-star active"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+          </div>
+          <div class="testimony-content">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="testimony-text">Kurang puas, respon sangat lambat dan barang yang datang tidak sesuai ekspektasi.
+              Perlu perbaikan layanan.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -125,6 +255,10 @@
                   <span class="info-value" id="total-sales-value">0</span>
                 </div>
                 <div class="info-item">
+                  <span class="info-label">Jumlah Pengunjung</span>
+                  <span class="info-value" id="total-visitors-value">0</span>
+                </div>
+                <div class="info-item">
                   <span class="info-label">Status Toko</span>
                   <span class="info-value" style="color: #2ecc71;">OPTIMAL</span>
                 </div>
@@ -140,7 +274,7 @@
     <div class="footer-content">
       <div class="footer-brand">
         <h2 class="pricedownbl-text logo-glow">
-          <span style="color: deeppink;">Tomas Store</span>
+          <span style="color: deeppink;">Tomas</span> <span class="contrast-text">Store</span>
         </h2>
         <p>Penyedia layanan mapping dan fitur in-game terbaik sejak 2024.</p>
       </div>
@@ -169,7 +303,7 @@
 
     <div class="footer-bottom">
       <p class="pricedownbl-text">
-        <span style="color: deeppink;">Tomas Store</span> &copy; 2026.
+        <span style="color: deeppink;">Tomas</span> <span class="contrast-text">Store</span> &copy; 2026.
       </p>
       <div class="visitor-counter">
         <span class="visitor-label">Total Pengunjung</span>
@@ -182,6 +316,7 @@
   </footer>
 
   <script src="visitor.js"></script>
+  <script src="auth.js"></script>
   <script src="home.js"></script>
 </body>
 

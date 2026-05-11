@@ -4,9 +4,22 @@
 }
 
 :root {
-  --gta-yellow: #ffffff;
-  --gta-bg: #0a0a0a;
-  --gta-green: #2ecc71;
+  --gta-yellow: #f0f0f0;
+  --gta-bg: #121212;
+  --gta-green: #27ae60;
+  --deeppink: #ff1493;
+  
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --nav-bg: rgba(18, 18, 18, 0.9);
+  --nav-text: #cccccc;
+  --terminal-bg: rgba(25, 25, 25, 0.85);
+  --terminal-border: rgba(255, 255, 255, 0.2);
+  --footer-bg: #0f0f0f;
+  --section-bg: rgba(255, 255, 255, 0.02);
+  --card-bg: rgba(30, 30, 30, 0.9);
+  --divider-color: rgba(255, 20, 147, 0.15);
+  --hero-overlay: rgba(0, 0, 0, 0.7);
 }
 
 * {
@@ -35,11 +48,11 @@ body {
   top: 0;
   width: 100%;
   padding: 15px 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   /* Efek kaca transparan */
   z-index: 1000;
-  border-bottom: 2px solid rgba(255, 20, 147, 0.3);
+  border-bottom: 2px solid var(--divider-color);
   /* Border pink tipis */
 }
 
@@ -85,8 +98,8 @@ body {
 
 /* Star Rating Styling */
 .hud-stars .active {
-  color: yellow;
-  text-shadow: 0 0 8px yellow;
+  color: #f1c40f;
+  text-shadow: 0 0 5px rgba(241, 196, 15, 0.4);
 }
 
 /* Responsive Menu (Hamburger) */
@@ -166,8 +179,8 @@ body {
 }
 
 .samp-terminal {
-  background: rgba(0, 0, 0, 0.8);
-  border-left: 4px solid var(--gta-yellow);
+  background: var(--terminal-bg);
+  border-left: 4px solid var(--terminal-border);
   padding: 15px 25px;
   text-align: left;
   max-width: 500px;
@@ -207,7 +220,7 @@ body {
 }
 
 .gta-card {
-  background: #111;
+  background: var(--card-bg);
   border: 1px solid #222;
   transition: 0.3s;
   overflow: hidden;
@@ -272,7 +285,7 @@ body {
 
 /* Update Footer Styling */
 .gta-footer {
-  background: rgba(0, 0, 0, 0.95);
+  background: var(--footer-bg);
   border-top: 2px solid #222;
   padding: 50px 20px 20px;
   margin-top: 50px;

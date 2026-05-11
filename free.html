@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Pricedown&family=Space+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="visitor.css" />
+  <link rel="stylesheet" href="auth.css" />
 </head>
 
 <body class="gta-samp-theme">
@@ -33,6 +34,7 @@
         <li><a href="index.html" class="nav-item"><i class="fas fa-home"></i> Beranda</a></li>
         <li><a href="sell.html" class="nav-item"><i class="fas fa-shopping-cart"></i> Jual</a></li>
         <li><a href="#free" class="nav-item active"><i class="fas fa-gift"></i> Gratis</a></li>
+        <li><a href="#" class="nav-item" id="auth-btn"><i class="fas fa-user-circle"></i> <span id="auth-btn-text">Akun</span></a></li>
       </ul>
 
       <div class="hud-stars desktop-only-stars">
@@ -50,7 +52,7 @@
       <div class="samp-terminal">
         <p><span style="color: deeppink;">[SYSTEM]</span> Tomas Store status: <span style="color: green;">Online</span>
         </p>
-        <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: yellow;">★★★☆☆</span></p>
+        <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: #f2ff00;">★★★☆☆</span></p>
         <p class="cmd">/<span class="blink">_</span></p>
       </div>
     </div>
@@ -105,6 +107,22 @@
           </button>
         </div>
       </div>
+
+      <div class="gta-card">
+        <img src="img/gray.png" alt="">
+        <div class="card-details">
+          <h3 class="pricedownbl-text">GTA r1 Gray</h3>
+          <div class="item-rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+          </div>
+          <div class="sold-info">Terjual: <span class="sold-count" data-item-id="ramadhan">0</span></div>
+          <p>IDK.</p>
+          <button>
+            <a href="ramadhan.html">CLAIM</a>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -113,7 +131,7 @@
     <div class="samp-terminal">
       <p><span style="color: deeppink;">[SYSTEM]</span> Tomas Store status: <span style="color: green;">Online</span>
       </p>
-      <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: yellow;">★★★☆☆</span></p>
+      <p><span style="color: deeppink;">[USER]</span> Rating: <span style="color: #f2ff00;">★★★☆☆</span></p>
       <p><span style="color: deeppink;">Tomas says:</span> Terimakasih Sudah Order
       <p>
       <p><span style="color: deeppink;">Tomas says:</span> Jangan Lupa Join Discord Yaw >_<< /p>
@@ -167,6 +185,7 @@
 
 
   <script src="visitor.js"></script>
+  <script src="auth.js"></script>
   <script src="free.js"></script>
 </body>
 

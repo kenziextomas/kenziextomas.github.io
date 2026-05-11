@@ -25,7 +25,7 @@
 }
 
 .visitor-count {
-  color: #fff;
+  color: var(--text-color);
   font-family: 'Space Mono', monospace;
   font-weight: bold;
   font-size: 1rem;

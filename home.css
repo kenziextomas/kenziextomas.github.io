@@ -7,7 +7,26 @@
   --gta-yellow: #ffffff;
   --gta-bg: #0a0a0a;
   --gta-green: #2ecc71;
+  --deeppink: #ff1493;
+  
+  /* Theme Variables (Dark Default) */
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --nav-bg: rgba(18, 18, 18, 0.9);
+  --nav-text: #cccccc;
+  --terminal-bg: rgba(25, 25, 25, 0.85);
+  --terminal-border: rgba(255, 255, 255, 0.2);
+  --footer-bg: #0f0f0f;
+  --section-bg: rgba(255, 255, 255, 0.02);
+  --card-bg: rgba(30, 30, 30, 0.9);
+  --divider-color: rgba(255, 20, 147, 0.15);
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --hero-overlay: rgba(0, 0, 0, 0.7);
+  --contrast-text: #f0f0f0;
+  --mission-title: #f0f0f0;
 }
+
+
 
 * {
   margin: 0;
@@ -17,9 +36,10 @@
 }
 
 body {
-  background: var(--gta-bg);
-  color: white;
+  background: var(--bg-color);
+  color: var(--text-color);
   font-family: "Space Mono", monospace;
+  transition: background 0.3s, color 0.3s;
 }
 
 .pricedown-text {
@@ -34,12 +54,13 @@ body {
   top: 0;
   width: 100%;
   padding: 15px 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   /* Efek kaca transparan */
   z-index: 1000;
-  border-bottom: 2px solid rgba(255, 20, 147, 0.3);
+  border-bottom: 2px solid var(--divider-color);
   /* Border pink tipis */
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .nav-flex {
@@ -59,7 +80,7 @@ body {
 }
 
 .nav-item {
-  color: #fff;
+  color: var(--nav-text);
   text-decoration: none;
   font-family: 'Space Mono', monospace;
   font-weight: bold;
@@ -84,8 +105,8 @@ body {
 
 /* Star Rating Styling */
 .hud-stars .active {
-  color: yellow;
-  text-shadow: 0 0 8px yellow;
+  color: #f1c40f;
+  text-shadow: 0 0 5px rgba(241, 196, 15, 0.4);
 }
 
 /* Responsive Menu (Hamburger) */
@@ -103,7 +124,7 @@ body {
 .nav-toggle-label span::before,
 .nav-toggle-label span::after {
   display: block;
-  background: white;
+  background: var(--text-color);
   height: 2px;
   width: 25px;
   position: relative;
@@ -131,13 +152,13 @@ body {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.95);
+    background: var(--nav-bg);
     flex-direction: column;
     padding: 20px 0;
     gap: 15px;
     transform: translateY(-150%);
     transition: transform 0.4s ease-in-out;
-    border-bottom: 2px solid deeppink;
+    border-bottom: 2px solid var(--deeppink);
   }
 
   .nav-toggle:checked~.nav-links {
@@ -155,26 +176,34 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/background.png');
+  background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('img/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
   position: relative;
+  transition: background 0.3s;
 }
 
 .big-title {
   font-size: clamp(2.5rem, 8vw, 5rem);
   margin-bottom: 20px;
+  color: var(--text-color);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
+
+
 .samp-terminal {
-  background: rgba(0, 0, 0, 0.8);
-  border-left: 4px solid var(--gta-yellow);
+  background: var(--terminal-bg);
+  border-left: 4px solid var(--terminal-border);
   padding: 15px 25px;
   text-align: left;
   max-width: 500px;
   margin: 0 auto 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .samp-terminal span {
@@ -210,7 +239,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000000;
+  background: var(--bg-color);
   /* Hitam Full */
   display: flex;
   justify-content: center;
@@ -232,14 +261,14 @@ body {
 
 .mission-title {
   font-size: clamp(3.5rem, 12vw, 7rem);
-  color: #f2ff00;
-  text-shadow: 4px 4px #000;
+  color: var(--mission-title);
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 5px;
 }
 
 .mission-stats {
-  border-top: 3px solid #fff;
-  border-bottom: 3px solid #fff;
+  border-top: 3px solid var(--text-color);
+  border-bottom: 3px solid var(--text-color);
   padding: 10px 0;
   opacity: 0;
   animation: fadeInStats 0.6s ease 1s forwards;
@@ -247,7 +276,7 @@ body {
 
 .respect-text {
   font-size: 2.2rem;
-  color: #fff;
+  color: var(--text-color);
   letter-spacing: 5px;
 }
 
@@ -272,10 +301,11 @@ body {
 
 /* Update Footer Styling */
 .gta-footer {
-  background: rgba(0, 0, 0, 0.95);
-  border-top: 2px solid #222;
+  background: var(--footer-bg);
+  border-top: 2px solid var(--divider-color);
   padding: 50px 20px 20px;
   margin-top: 50px;
+  transition: background 0.3s;
 }
 
 .footer-content {
@@ -310,10 +340,11 @@ body {
 }
 
 .footer-links ul li a {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
   transition: 0.3s;
   font-size: 0.9rem;
+  opacity: 0.8;
 }
 
 .footer-links ul li a:hover {
@@ -327,9 +358,9 @@ body {
 }
 
 .social-icons a {
-  color: #fff;
+  color: var(--text-color);
   font-size: 1.5rem;
-  background: #1a1a1a;
+  background: var(--input-bg);
   width: 45px;
   height: 45px;
   display: flex;
@@ -352,6 +383,205 @@ body {
   text-align: center;
 }
 
+/* Testimonials Section */
+.testimonials {
+  padding: 60px 20px;
+  background: var(--section-bg);
+}
+
+.rating-filter-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.filter-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rating-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.filter-btn {
+  background: var(--terminal-bg);
+  border: 1px solid var(--terminal-border);
+  color: var(--text-color);
+  padding: 10px 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn i {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.filter-btn:hover {
+  border-color: var(--deeppink);
+  background: rgba(255, 20, 147, 0.05);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: var(--deeppink);
+  color: white;
+  border-color: var(--deeppink);
+  box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+}
+
+.filter-btn.active i {
+  color: #f1c40f;
+}
+
+.testimony-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  min-height: 400px; /* Prevent layout jump */
+}
+
+.testimony-card {
+  max-width: 100% !important;
+  margin: 0 !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimony-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.testimony-card:hover::before {
+  left: 100%;
+}
+
+.testimony-card:hover {
+  transform: translateY(-15px);
+  border-color: var(--deeppink);
+  box-shadow: 0 15px 40px rgba(255, 20, 147, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.testimony-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.user-avatar {
+  font-size: 3rem;
+  color: var(--deeppink);
+  filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.4));
+  transition: 0.3s;
+}
+
+.testimony-card:hover .user-avatar {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.6));
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-family: 'Space Mono', monospace;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verified-badge {
+  font-size: 0.9rem;
+  color: #3498db;
+  filter: drop-shadow(0 0 5px rgba(52, 152, 219, 0.5));
+}
+
+.user-rating {
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.user-rating .active {
+  color: #f1c40f;
+  text-shadow: 0 0 8px rgba(241, 196, 15, 0.5);
+}
+
+.testimony-content {
+  position: relative;
+  z-index: 1;
+}
+
+.quote-icon {
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  font-size: 2rem;
+  color: var(--deeppink);
+  opacity: 0.2;
+  transition: 0.3s;
+}
+
+.testimony-card:hover .quote-icon {
+  opacity: 0.4;
+  transform: scale(1.2) rotate(-10deg);
+}
+
+.testimony-text {
+  font-style: italic;
+  line-height: 1.8;
+  color: #ddd;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 20px;
+  margin: 0;
+}
+
 /* Stats Grid Layout */
 .stats-grid {
   display: grid;
@@ -370,6 +600,9 @@ body {
     max-width: 500px;
     margin: 0 auto;
     width: 100%;
+    background: var(--card-bg);
+    border-radius: 8px;
+    transition: background 0.3s;
   }
 }
 
@@ -421,7 +654,7 @@ body {
 .gauge-value {
   font-family: "pricedownbl", sans-serif;
   font-size: 2.5rem;
-  color: white;
+  color: var(--text-color);
   text-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
   z-index: 1;
 }
@@ -449,13 +682,14 @@ body {
 .info-value {
   font-family: "Space Mono", monospace;
   font-weight: bold;
-  color: #fff;
+  color: var(--text-color);
 }
 
 /* Existing Sales Statistics Styles */
 .sales-stats {
   padding: 60px 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--section-bg);
+  transition: background 0.3s;
 }
 
 .chart-terminal {
@@ -477,7 +711,8 @@ body {
 
 .chart-label {
   font-size: 0.8rem;
-  color: #aaa;
+  color: var(--text-color);
+  opacity: 0.8;
   display: flex;
   justify-content: space-between;
 }
@@ -509,9 +744,9 @@ body {
   position: absolute;
   bottom: 30px;
   right: 30px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  background: var(--input-bg);
+  border: 1px solid var(--divider-color);
+  color: var(--text-color);
   padding: 8px 20px;
   font-family: 'Space Mono', monospace;
   font-size: 0.9rem;
@@ -527,3 +762,16 @@ body {
   border-color: deeppink;
   box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
 }
+
+
+
+.contrast-text {
+  color: var(--contrast-text) !important;
+}
+
+.logo-glow {
+  text-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+}
+
+
+

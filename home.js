@@ -91,13 +91,51 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem('tomas_sales_counts', JSON.stringify(counts));
 
     // Conversion Rate Logic (Rumus: Jumlah Pembeli / Jumlah Pengunjung * 100)
-    const visitorCount = parseInt(localStorage.getItem('visitor_count_fallback')) || 12450;
-    const conversionRate = ((totalSales / visitorCount) * 100).toFixed(1);
-    
-    const conversionPercentEl = document.getElementById('conversion-percent');
-    const totalSalesEl = document.getElementById('total-sales-value');
-    const gaugeRing = document.querySelector('.gauge-ring');
+    const updateConversionUI = (visitors) => {
+      const conversionPercentEl = document.getElementById('conversion-percent');
+      const totalVisitorsEl = document.getElementById('total-visitors-value');
+      const gaugeRing = document.querySelector('.gauge-ring');
+      
+      if (totalVisitorsEl) totalVisitorsEl.innerText = parseInt(visitors).toLocaleString();
 
+      const rate = ((totalSales / visitors) * 100).toFixed(1);
+      
+      // Animate Gauge
+      if (gaugeRing) {
+        const degrees = (rate / 100) * 360;
+        gaugeRing.style.background = `conic-gradient(deeppink ${degrees}deg, rgba(255, 20, 147, 0.1) 0deg)`;
+      }
+
+      // Animate Percentage Text
+      if (conversionPercentEl) {
+        let current = 0;
+        const target = parseFloat(rate);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        const updatePercent = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const val = (progress * target).toFixed(1);
+          conversionPercentEl.innerText = val + '%';
+          if (progress < 1) requestAnimationFrame(updatePercent);
+        };
+        requestAnimationFrame(updatePercent);
+      }
+    };
+
+    // Initial calculation
+    const currentVisitors = parseInt(localStorage.getItem('tomas_visitor_total')) || 37450;
+    setTimeout(() => {
+      updateConversionUI(currentVisitors);
+    }, immediate ? 200 : 6000);
+
+    // Listen for visitor count updates from visitor.js
+    window.addEventListener('visitorCountReady', (e) => {
+      updateConversionUI(e.detail);
+    });
+
+    const totalSalesEl = document.getElementById('total-sales-value');
     if (totalSalesEl) totalSalesEl.innerText = totalSales.toLocaleString();
 
     chartContainer.innerHTML = '';
@@ -122,31 +160,43 @@ document.addEventListener("DOMContentLoaded", () => {
         itemEl.querySelector('.chart-bar-fill').style.width = percentage + '%';
       }, immediate ? 100 : 5500);
     });
-
-    // Animate Conversion Rate
-    setTimeout(() => {
-      if (gaugeRing) {
-        const degrees = (conversionRate / 100) * 360;
-        gaugeRing.style.background = `conic-gradient(deeppink ${degrees}deg, rgba(255, 20, 147, 0.1) 0deg)`;
-      }
-
-      if (conversionPercentEl) {
-        let current = 0;
-        const target = parseFloat(conversionRate);
-        const duration = 1500;
-        const startTime = performance.now();
-
-        const updatePercent = (currentTime) => {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const val = (progress * target).toFixed(1);
-          conversionPercentEl.innerText = val + '%';
-          if (progress < 1) requestAnimationFrame(updatePercent);
-        };
-        requestAnimationFrame(updatePercent);
-      }
-    }, immediate ? 200 : 6000);
   };
 
   initSalesChart();
+  
+  // Testimony Filtering Logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const testimonyCards = document.querySelectorAll('.testimony-card');
+
+  if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter cards
+        testimonyCards.forEach(card => {
+          const rating = card.dataset.rating;
+          
+          if (filter === 'all' || rating === filter) {
+            card.style.display = 'flex';
+            // Animation trigger
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.transition = 'all 0.5s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
 });

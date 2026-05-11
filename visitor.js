@@ -7,16 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
     return num.toString().padStart(6, '0');
   };
 
+  const baseOffset = 25000; // Base offset to ensure visitors > buyers
+
   // Try to get real count from CounterAPI
-  // Using a more reliable endpoint or fallback
   const fetchCount = async () => {
     try {
-      // Note: In a real environment, this increments the counter
       const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/visits/up`);
       const data = await response.json();
 
       if (data && data.count) {
-        animateCount(data.count);
+        const countWithOffset = data.count + baseOffset;
+        localStorage.setItem("tomas_visitor_total", countWithOffset);
+        animateCount(countWithOffset);
+        window.dispatchEvent(new CustomEvent('visitorCountReady', { detail: countWithOffset }));
       } else {
         throw new Error("Invalid data");
       }
@@ -29,12 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const handleFallback = () => {
     let localCount = localStorage.getItem("visitor_count_fallback");
     if (!localCount) {
-      // Start with a base number for premium feel
       localCount = 12450;
     }
     localCount = parseInt(localCount) + 1;
+    const countWithOffset = localCount + baseOffset;
     localStorage.setItem("visitor_count_fallback", localCount);
-    animateCount(localCount);
+    localStorage.setItem("tomas_visitor_total", countWithOffset);
+    animateCount(countWithOffset);
+    window.dispatchEvent(new CustomEvent('visitorCountReady', { detail: countWithOffset }));
   };
 
   const animateCount = (target) => {
